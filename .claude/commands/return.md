@@ -1,3 +1,7 @@
+---
+description: "Record a return. A damaged return quarantines the instrument."
+---
+
 # return
 
 Record a return. A damaged return quarantines the instrument.

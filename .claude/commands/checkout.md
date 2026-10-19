@@ -1,3 +1,7 @@
+---
+description: "Record custody only when the tool is eligible through the planned return date."
+---
+
 # checkout
 
 Record custody only when the tool is eligible through the planned return date.

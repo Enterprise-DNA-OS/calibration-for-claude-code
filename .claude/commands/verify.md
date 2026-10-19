@@ -1,3 +1,7 @@
+---
+description: "Record an independent person’s evidence review. Never infer it from a pass label."
+---
+
 # verify
 
 Record an independent person’s evidence review. Never infer it from a pass label.

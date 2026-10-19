@@ -1,3 +1,7 @@
+---
+description: "Prevent further checkout while a tool is reviewed."
+---
+
 # quarantine
 
 Prevent further checkout while a tool is reviewed.

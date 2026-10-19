@@ -1,3 +1,7 @@
+---
+description: "Review open out-of-tolerance investigations and their owners."
+---
+
 # investigations
 
 Review open out-of-tolerance investigations and their owners.

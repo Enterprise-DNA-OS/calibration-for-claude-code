@@ -1,3 +1,7 @@
+---
+description: "Record a calibration already performed by a competent person. Failure opens an investigation."
+---
+
 # record-calibration
 
 Record a calibration already performed by a competent person. Failure opens an investigation.

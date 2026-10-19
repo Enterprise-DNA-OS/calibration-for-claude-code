@@ -1,3 +1,7 @@
+---
+description: "Record the impact assessment and disposition already approved by a person."
+---
+
 # close-investigation
 
 Record the impact assessment and disposition already approved by a person.

@@ -1,3 +1,7 @@
+---
+description: "Create a local recall draft. Review it; never send it."
+---
+
 # draft-recall
 
 Create a local recall draft. Review it; never send it.

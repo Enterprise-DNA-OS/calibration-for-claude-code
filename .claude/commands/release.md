@@ -1,3 +1,7 @@
+---
+description: "Record the owner’s release decision after a verified pass and closed impact reviews."
+---
+
 # release
 
 Record the owner’s release decision after a verified pass and closed impact reviews.

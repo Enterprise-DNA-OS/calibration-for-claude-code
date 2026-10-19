@@ -1,3 +1,7 @@
+---
+description: "Prepare the 30-day calibration recall list, including missing dates."
+---
+
 # recall
 
 Prepare the 30-day calibration recall list, including missing dates.

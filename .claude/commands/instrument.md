@@ -1,3 +1,7 @@
+---
+description: "Read one instrument before discussing it."
+---
+
 # instrument
 
 Read one instrument before discussing it.

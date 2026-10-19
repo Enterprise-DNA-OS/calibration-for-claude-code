@@ -1,3 +1,7 @@
+---
+description: "Append a note without rewriting the original record."
+---
+
 # log
 
 Append a note without rewriting the original record.

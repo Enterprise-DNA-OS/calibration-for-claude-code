@@ -1,3 +1,7 @@
+---
+description: "Run the documented record checks. Explain findings using docs/compliance.md."
+---
+
 # compliance
 
 Run the documented record checks. Explain findings using docs/compliance.md.

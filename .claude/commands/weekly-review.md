@@ -1,3 +1,7 @@
+---
+description: "Read attention, recall and evidence, then write the Monday review draft."
+---
+
 # weekly-review
 
 Read attention, recall and evidence, then write the Monday review draft.

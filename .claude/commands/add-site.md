@@ -1,3 +1,7 @@
+---
+description: "Add an operating site."
+---
+
 # add-site
 
 Add an operating site.

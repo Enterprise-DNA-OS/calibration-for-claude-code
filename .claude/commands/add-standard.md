@@ -1,3 +1,7 @@
+---
+description: "Record the external reference-standard certificate details."
+---
+
 # add-standard
 
 Record the external reference-standard certificate details.

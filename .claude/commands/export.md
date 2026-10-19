@@ -1,3 +1,7 @@
+---
+description: "Write a private archive of all records and the change log to a new file."
+---
+
 # export
 
 Write a private archive of all records and the change log to a new file.

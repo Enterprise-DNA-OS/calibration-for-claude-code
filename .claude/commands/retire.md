@@ -1,3 +1,7 @@
+---
+description: "Retain the history while taking a returned tool out of service."
+---
+
 # retire
 
 Retain the history while taking a returned tool out of service.

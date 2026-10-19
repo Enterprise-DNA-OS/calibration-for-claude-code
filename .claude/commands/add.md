@@ -1,3 +1,7 @@
+---
+description: "Add a quarantined instrument with its owner and site."
+---
+
 # add
 
 Add a quarantined instrument with its owner and site.

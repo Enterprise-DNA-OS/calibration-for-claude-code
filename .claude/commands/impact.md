@@ -1,3 +1,7 @@
+---
+description: "List known batches since the last verified pass, including use after failure."
+---
+
 # impact
 
 List known batches since the last verified pass, including use after failure.
