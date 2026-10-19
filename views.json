@@ -1,13 +1,38 @@
 [
   {
-    "name": "week",
-    "title": "This week",
-    "subtitle": "Calibration for Claude Code: what needs attention, rendered by npm run view",
+    "name": "recall",
+    "title": "Calibration recall desk",
+    "subtitle": "Recorded dates and eligibility, as of database current date",
     "sections": [
       {
-        "title": "Needs attention",
-        "note": "TODO(author): point this at the industry's attention view (overdue, stuck, quiet).",
-        "sql": "select 'replace me' as item, 'TODO(author)' as why"
+        "title": "Due in the next 30 days or overdue",
+        "sql": "select site,code,name,owner,coalesce(next_due::text,'unknown') as next_due,coalesce(days_to_due::text,'unknown') as days_to_due,eligibility from v_recall order by next_due nulls first,code"
+      },
+      {
+        "title": "Site readiness",
+        "sql": "select * from v_sites order by site"
+      }
+    ]
+  },
+  {
+    "name": "evidence",
+    "title": "Calibration evidence review",
+    "sections": [
+      {
+        "title": "Evidence gaps",
+        "note": "Checks references and recorded dates only. An operator inspects the underlying documents.",
+        "sql": "select site,code,performed_on,gaps from v_evidence where gaps<>'' order by site,code"
+      }
+    ]
+  },
+  {
+    "name": "impact",
+    "title": "Out-of-tolerance impact desk",
+    "sections": [
+      {
+        "title": "Known batches since the prior verified pass",
+        "note": "The scope includes use after the failure. Missing use records are not proof of no impact.",
+        "sql": "select code,owner,status,due_on,batch,used_on,quantity,scope from v_impact order by code,used_on"
       }
     ]
   }

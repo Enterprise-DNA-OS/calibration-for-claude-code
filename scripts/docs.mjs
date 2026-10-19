@@ -23,6 +23,7 @@ const slug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(
 const db = await getDb();
 let count = 0;
 try {
+  await db.exec("BEGIN READ ONLY");
   for (const d of spec) {
     if (only && d.name !== only) continue;
     const records = await db.query(d.for_each);
@@ -41,5 +42,6 @@ try {
   }
   console.log(`${count} document(s) rendered`);
 } finally {
+  await db.exec("ROLLBACK");
   await db.close();
 }

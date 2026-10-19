@@ -17,6 +17,7 @@ const only = process.argv[2];
 const spec = JSON.parse(readFileSync(path.join(REPO_ROOT, 'views.json'), 'utf8'));
 const db = await getDb();
 try {
+  await db.exec("BEGIN READ ONLY");
   for (const v of spec) {
     if (only && v.name !== only) continue;
     const sections = [];
@@ -28,5 +29,6 @@ try {
     console.log(`view: ${path.relative(REPO_ROOT, file)}`);
   }
 } finally {
+  await db.exec("ROLLBACK");
   await db.close();
 }

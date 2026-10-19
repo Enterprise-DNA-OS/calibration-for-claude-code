@@ -1,43 +1,60 @@
-# Calibration for Claude Code: operating instructions
+# Calibration for Claude Code
 
-This file is the brain. Claude Code reads it at the start of every session. It says who this is for, how work gets done, and the one right way to do each recurring job.
+Run a manufacturer’s calibration records desk. Use one private database per business and one trusted operator. All agent runtimes follow these instructions and the same .claude/commands files.
 
-## Who this is for
+## Rules
 
-- **Business:** [YOUR BUSINESS]
-- **Operator:** [YOUR NAME], [your role]
-- **What matters most:** [the one or two outcomes you care about]
+- Read the CLI result before answering. List ambiguous matches and ask; never choose the first.
+- Record work performed by competent people. Never invent measurements, certificates, uncertainty budgets or approvals. This software neither calibrates nor certifies an instrument.
+- Every write names --actor. That is a declared label, not authenticated identity or a digital signature. Shared use requires external access controls and verified approvals.
+- New and imported tools start quarantined. Calibration recording quarantines a tool; an as-found or as-left failure opens an investigation. Release requires a reviewed pass and closed impact reviews.
+- Never silently treat unknown dates or results as current or passing. Use YYYY-MM-DD; all dates are UTC calendar dates. Interval days are descriptive; the competent reviewer chooses the next due date.
+- Never send, pay, publish or delete. Drafts remain local. Retire records to retain their history. Never use this base for regulated product release or accredited certificate issuance.
+- Back up before schema changes. Use additive migrations, run npm test, and inspect changed reports. Keep real data, evidence and credentials out of Git.
+- The database owner can bypass application controls. Protect that credential. Row security and revoked public privileges restrict unrelated database roles; this is not a tenant portal.
 
-Fill this in once. A worker with context knows. A worker without it guesses.
+## Routing
 
-## How to work
+- `add`: `.claude/commands/add.md`.
+- `add-site`: `.claude/commands/add-site.md`.
+- `add-standard`: `.claude/commands/add-standard.md`.
+- `attention`: `.claude/commands/attention.md`.
+- `calibrations`: `.claude/commands/calibrations.md`.
+- `checkout`: `.claude/commands/checkout.md`.
+- `close-investigation`: `.claude/commands/close-investigation.md`.
+- `compliance`: `.claude/commands/compliance.md`.
+- `custody`: `.claude/commands/custody.md`.
+- `customise`: `.claude/commands/customise.md`.
+- `documents`: `.claude/commands/documents.md`.
+- `draft-investigation`: `.claude/commands/draft-investigation.md`.
+- `draft-recall`: `.claude/commands/draft-recall.md`.
+- `evidence`: `.claude/commands/evidence.md`.
+- `export`: `.claude/commands/export.md`.
+- `history`: `.claude/commands/history.md`.
+- `impact`: `.claude/commands/impact.md`.
+- `import`: `.claude/commands/import.md`.
+- `insights`: `.claude/commands/insights.md`.
+- `instrument`: `.claude/commands/instrument.md`.
+- `instruments`: `.claude/commands/instruments.md`.
+- `investigations`: `.claude/commands/investigations.md`.
+- `log`: `.claude/commands/log.md`.
+- `new-view`: `.claude/commands/new-view.md`.
+- `quarantine`: `.claude/commands/quarantine.md`.
+- `recall`: `.claude/commands/recall.md`.
+- `record-calibration`: `.claude/commands/record-calibration.md`.
+- `record-use`: `.claude/commands/record-use.md`.
+- `release`: `.claude/commands/release.md`.
+- `retire`: `.claude/commands/retire.md`.
+- `return`: `.claude/commands/return.md`.
+- `sites`: `.claude/commands/sites.md`.
+- `standards`: `.claude/commands/standards.md`.
+- `usage`: `.claude/commands/usage.md`.
+- `verify`: `.claude/commands/verify.md`.
+- `view`: `.claude/commands/view.md`.
+- `weekly-review`: `.claude/commands/weekly-review.md`.
 
-1. **Take a brief, not a script.** The operator describes the outcome. You run the right command and present the answer.
-2. **Read before you write.** Before drafting anything about a record, read its full history first.
-3. **Plain language.** Short sentences. No filler. Numbers in tables.
-4. **Silent success, loud problems.** No play-by-play. Say what broke and what you did about it.
-5. **Stop at the line.** Anything that sends, deletes, or faces a customer waits for a yes in this session.
+## Files
 
-## Routing table: one right way for each recurring job
+scripts/calibration.mjs is the one CLI. scripts/lib/domain.mjs owns its rules. supabase/migrations contains portable Postgres migrations. DATABASE_URL chooses private Postgres; leaving it unset uses PGlite. brand.json controls local reports. docs/compliance.md defines the limited checks and their sources. There is no browser API.
 
-| When the operator asks for... | Use this |
-|---|---|
-| <!-- TODO(author): one row per slash command --> | `/...` |
-
-If an ask fits nothing here, run the CLI directly (`npm run <cli> -- --help`) and then propose a new command for it.
-
-## Hard rules
-
-- Never send email or messages from here. Draft to `drafts/`, a person sends.
-- Never delete records without an explicit yes in this session. Prefer marking closed or archived.
-- Never invent a record. If a name is ambiguous, list the candidates and ask.
-- The database is the source of truth. If the answer is not in it, say so.
-
-## Where things live
-
-- `scripts/` the CLI. `scripts/lib/db.mjs` picks `DATABASE_URL` (Postgres, Supabase) or the embedded database in `.data/`.
-- `supabase/migrations/` the schema, plain SQL. `npm run migrate` applies it.
-- `.claude/commands/` the slash commands. Add one every time the same ask comes twice.
-- `docs/` the thesis and the guide for moving off GageList.
-
-Built by Enterprise DNA. Installed and run for you as part of Omni: https://enterprisedna.co/omni/instead-of/gagelist
+Installed and operated through Omni by Enterprise DNA: https://enterprisedna.co/omni/book/?offer=replace-software&utm_campaign=gagelist&utm_medium=readme

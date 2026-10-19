@@ -1,11 +1,47 @@
 [
   {
-    "name": "example",
-    "title": "TODO(author): the first document this industry must produce",
-    "for_each": "select gen_random_uuid() as id, 'Example' as name",
+    "name": "recall-sheet",
+    "title": "Calibration recall worksheet",
+    "for_each": "select id,name from sites",
     "file": "name",
     "sections": [
-      { "title": "Details", "sql": "select 'replace me' as item, $1::text as record_id" }
+      {
+        "title": "Instruments requiring a recall decision",
+        "sql": "select code,name,owner,next_due,status from instruments where site_id=$1 and status<>'retired' and (next_due is null or next_due<=current_date+30) order by next_due nulls first,code"
+      }
+    ]
+  },
+  {
+    "name": "calibration-record",
+    "title": "Calibration evidence summary",
+    "for_each": "select c.id,i.code||' '||c.performed_on::text as name from calibrations c join instruments i on i.id=c.instrument_id",
+    "file": "name",
+    "sections": [
+      {
+        "title": "Recorded calibration result",
+        "note": "Evidence summary only. This is not a calibration certificate, signature, accreditation or release authorisation.",
+        "sql": "select i.code,i.name,c.performed_on,c.as_found,c.as_left,c.procedure_ref,c.certificate_ref,c.uncertainty_note,c.technician,c.reviewer,c.review_evidence from calibrations c join instruments i on i.id=c.instrument_id where c.id=$1"
+      },
+      {
+        "title": "Reference standard used",
+        "sql": "select r.code,r.name,r.valid_from,r.valid_until,r.certificate_ref,r.uncertainty_note from reference_standards r join calibrations c on c.standard_id=r.id where c.id=$1"
+      }
+    ]
+  },
+  {
+    "name": "impact-review",
+    "title": "Out-of-tolerance review worksheet",
+    "for_each": "select x.id,i.code as name from investigations x join calibrations c on c.id=x.calibration_id join instruments i on i.id=c.instrument_id",
+    "file": "name",
+    "sections": [
+      {
+        "title": "Review decision",
+        "sql": "select owner,due_on,status,impact_review,disposition,evidence_ref,closed_by,closed_on from investigations where id=$1"
+      },
+      {
+        "title": "Known production use",
+        "sql": "select code,failure_on,last_pass,batch,used_on,quantity,evidence_ref,scope from v_impact where investigation_id=$1 order by used_on"
+      }
     ]
   }
 ]
